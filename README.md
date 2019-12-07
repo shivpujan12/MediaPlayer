@@ -79,6 +79,16 @@ Follow below step to use MediaPlayer Library
         </provider>
     </application>
 ```
+- Give the resource for the provider meta-data resource, To do so create provider_paths.xml file inside res/xml/ directory. Below example shows the example meta-data resource file.
+
+```xml
+<!--provider_paths.xml-->
+  <?xml version="1.0" encoding="utf-8"?>
+<paths>
+    <external-path path="/" name="MediaPlayer"/>
+    <external-cache-path name="cache" path="Pictures" />
+</paths>
+```
 
 <br/>
 <p><b>Note:</b>
@@ -101,7 +111,7 @@ Follow the documentation on FileProvider for more details<br/>   https://develop
 - Playing audio using android resource file
 
 ```java
- AudioPlayer player2 = new AudioPlayer(MainActivity.this,
+ AudioPlayer player = new AudioPlayer(MainActivity.this,
                         isFinishing(),
                         getSupportFragmentManager(),
                         R.raw.guitar,
