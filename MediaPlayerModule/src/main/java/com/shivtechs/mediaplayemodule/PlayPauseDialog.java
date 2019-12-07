@@ -31,7 +31,13 @@ public class PlayPauseDialog extends DialogFragment {
     private static final String FILE_PROVIDER_NAME = "com.shivtechs.provider";
     private static int choice = MODE_PATH;
 
-    Runnable run = this::seekUpdation;
+    //    Runnable run = this::seekUpdation;
+    private Runnable run = new Runnable() {
+        @Override
+        public void run() {
+            seekUpdation();
+        }
+    };
     Handler seekHandler = new Handler();
 
     private void seekUpdation() {
@@ -138,18 +144,21 @@ public class PlayPauseDialog extends DialogFragment {
             }
         });
 
-        recordBtn.setOnClickListener(v -> {
-            if (mediaPlayer != null) {
-                if (!audioRecordFlag) {
-                    //play the audio
-                    mediaPlayer.start();
-                    recordBtn.setImageResource(R.drawable.ic_pause_black_24dp);
-                    audioRecordFlag = true;
-                } else {
-                    //stop the audio
-                    mediaPlayer.pause();
-                    recordBtn.setImageResource(R.drawable.ic_play_arrow_black_24dp);
-                    audioRecordFlag = false;
+        recordBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (mediaPlayer != null) {
+                    if (!audioRecordFlag) {
+                        //play the audio
+                        mediaPlayer.start();
+                        recordBtn.setImageResource(R.drawable.ic_pause_black_24dp);
+                        audioRecordFlag = true;
+                    } else {
+                        //stop the audio
+                        mediaPlayer.pause();
+                        recordBtn.setImageResource(R.drawable.ic_play_arrow_black_24dp);
+                        audioRecordFlag = false;
+                    }
                 }
             }
         });
