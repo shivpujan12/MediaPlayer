@@ -28,7 +28,7 @@ public class PlayPauseDialog extends DialogFragment {
     private MediaPlayer mediaPlayer = null;
     private SeekBar play_pause_seekbar;
     private ImageView recordBtn;
-    private static final String FILE_PROVIDER_NAME = "com.shivtechs.provider";
+    public static String FILE_PROVIDER_NAME;
     private static int choice = MODE_PATH;
 
     //    Runnable run = this::seekUpdation;
@@ -53,10 +53,11 @@ public class PlayPauseDialog extends DialogFragment {
         seekHandler.postDelayed(run, 1000);
     }
 
-    public static PlayPauseDialog newInstance(@Nullable String filepath, @Nullable Integer resourcePath, int choice) {
+    public static PlayPauseDialog newInstance(String filprovider,@Nullable String filepath, @Nullable Integer resourcePath, int choice) {
 
         Bundle args = new Bundle();
         PlayPauseDialog.choice = choice;
+        FILE_PROVIDER_NAME = filprovider;
         if (choice == MODE_PATH) {
             args.putString("filepath", filepath);
         } else {
