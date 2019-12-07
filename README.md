@@ -17,8 +17,8 @@ Please follow below instruction to know how to use it in your project
 - Supports basic media functions such as play,pause,seek<br/> 
 
 <div style="float:left">
-<img src="Screenshots/Screen1.png" width="200">
-<img src="Screenshots/Screen2.png" width="200">
+<img src="Screenshots/s1.jpg" width="200">
+<img src="Screenshots/s2.jpg" width="200">
 </div>
 
 
